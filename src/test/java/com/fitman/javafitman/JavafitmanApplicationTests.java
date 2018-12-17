@@ -20,7 +20,7 @@ public class JavafitmanApplicationTests {
 	@Autowired
 	private UtilisateurRepository UtilisateurRepository;
 
-	@Test
+	/* @Test
 	public void testConnectionBDD() {
 
 		//Given
@@ -32,7 +32,7 @@ public class JavafitmanApplicationTests {
 		//Assert.assertTrue((nbUtilisateur > 0));
 
 		//When
-		Utilisateur u = UtilisateurRepository.findOne(2);
+		Utilisateur u = UtilisateurRepository.findOne(4);
 		Set<Executer> e = u.getExecuterSports();
 
 		for (Executer ex : e) {
@@ -43,7 +43,7 @@ public class JavafitmanApplicationTests {
 		//Then
 		Assert.assertEquals(1, e.size());
 	}
-
+*/
 
 }
 

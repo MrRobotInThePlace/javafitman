@@ -18,93 +18,96 @@ public class UtilisateurService extends Utilisateur {
 
     public Exercices_Sport suggestionSport(Integer idUtilisateur) throws Exception {
         Utilisateur u2 = utilisateurRepository.findOne(idUtilisateur);
-        Boolean niveau_sport = u2.getNiveauSport();
-        Integer taille = u2.getTaille();
-        Integer poids = u2.getPoids();
         if (u2 == null) {
             throw new Exception("L'utilisateur n'existe pas");
+        } else {
+
+            Boolean niveau_sport = u2.getNiveauSport();
+            Integer taille = u2.getTaille();
+            Integer poids = u2.getPoids();
+
+            if (niveau_sport) {
+
+                if (taille < 170) {
+
+                    if (poids < 70) {
+                        return exercicesSportRepository.findByNom("Abdos");
+                    }
+                    if (poids >= 70 && poids < 90) {
+                        return exercicesSportRepository.findByNom("Abdos");
+                    }
+                    if (poids >= 90) {
+                        return exercicesSportRepository.findByNom("Squats");
+                    }
+                }
+
+                if (taille >= 170 && taille < 185) {
+
+                    if (poids < 70) {
+                        return exercicesSportRepository.findByNom("Abdos");
+                    }
+                    if (poids >= 70 && poids < 90) {
+                        return exercicesSportRepository.findByNom("Squats");
+                    }
+                    if (poids >= 90) {
+                        return exercicesSportRepository.findByNom("Running");
+                    }
+                }
+
+                if (taille >= 185) {
+
+                    if (poids < 70) {
+                        return exercicesSportRepository.findByNom("Abdos");
+                    }
+                    if (poids >= 70 && poids < 90) {
+                        return exercicesSportRepository.findByNom("Running");
+                    }
+                    if (poids >= 90) {
+                        return exercicesSportRepository.findByNom("Dips");
+                    }
+                }
+            } else {
+                if (taille < 170) {
+
+                    if (poids < 70) {
+                        return exercicesSportRepository.findByNom("Squats");
+                    }
+                    if (poids >= 70 && poids < 90) {
+                        return exercicesSportRepository.findByNom("Running");
+                    }
+                    if (poids >= 90) {
+                        return exercicesSportRepository.findByNom("Dips");
+                    }
+                }
+
+                if (taille >= 170 && taille < 185) {
+
+                    if (poids < 70) {
+                        return exercicesSportRepository.findByNom("Running");
+                    }
+                    if (poids >= 70 && poids < 90) {
+                        return exercicesSportRepository.findByNom("Dips");
+                    }
+                    if (poids >= 90) {
+                        return exercicesSportRepository.findByNom("Gainage");
+                    }
+                }
+
+                if (taille >= 185) {
+
+                    if (poids < 70) {
+                        return exercicesSportRepository.findByNom("Fente avant");
+                    }
+                    if (poids >= 70 && poids < 90) {
+                        return exercicesSportRepository.findByNom("Jump");
+                    }
+                    if (poids >= 90) {
+                        return exercicesSportRepository.findByNom("pompes");
+                    }
+                }
+            }
+            return null;
         }
-        if (niveau_sport == true) {
-            if (taille < 170) {
-
-                if (poids < 70) {
-                    return exercicesSportRepository.findOne(1);
-                }
-                if (poids >= 70 && poids < 90) {
-                    return exercicesSportRepository.findOne(2);
-                }
-                if (poids >= 90) {
-                    return exercicesSportRepository.findOne(3);
-                }
-            }
-
-            if (taille >= 170 && taille < 185) {
-
-                if (poids < 70) {
-                    return exercicesSportRepository.findOne(1);
-                }
-                if (poids >= 70 && poids < 90) {
-                    return exercicesSportRepository.findOne(3);
-                }
-                if (poids >= 90) {
-                    return exercicesSportRepository.findOne(4);
-                }
-            }
-
-            if (taille >= 185) {
-
-                if (poids < 70) {
-                    return exercicesSportRepository.findOne(2);
-                }
-                if (poids >= 70 && poids < 90) {
-                    return exercicesSportRepository.findOne(4);
-                }
-                if (poids >= 90) {
-                    return exercicesSportRepository.findOne(5);
-                }
-            }
-        }
-
-        if (niveau_sport == false) {
-            if (taille < 170) {
-
-                if (poids < 70) {
-                    return exercicesSportRepository.findOne(3);
-                }
-                if (poids >= 70 && poids < 90) {
-                    return exercicesSportRepository.findOne(4);
-                }
-                if (poids >= 90) {
-                    return exercicesSportRepository.findOne(5);
-                }
-            }
-
-            if (taille >= 170 && taille < 185) {
-
-                if (poids < 70) {
-                    return exercicesSportRepository.findOne(4);
-                }
-                if (poids >= 70 && poids < 90) {
-                    return exercicesSportRepository.findOne(5);
-                }
-                if (poids >= 90) {
-                    return exercicesSportRepository.findOne(6);
-                }
-            }
-
-            if (taille >= 185) {
-
-                if (poids < 70) {
-                    return exercicesSportRepository.findOne(7);
-                }
-                if (poids >= 70 && poids < 90) {
-                    return exercicesSportRepository.findOne(8);
-                }
-                if (poids >= 90) {
-                    return exercicesSportRepository.findOne(9);
-                }
-            }
-        }
-        return exercicesSportRepository.findOne(1);
     }
 }
+

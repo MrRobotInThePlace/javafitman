@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface ExercicesSportRepository extends PagingAndSortingRepository<Exercices_Sport, Integer> {
 
-    List<Exercices_Sport> findByNom (String nom);
+    Exercices_Sport findByNom (String nom);
 
 }

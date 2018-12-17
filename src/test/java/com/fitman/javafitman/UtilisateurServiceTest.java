@@ -17,7 +17,7 @@ public class UtilisateurServiceTest {
 
     @Test(expected = Exception.class)
     public void testliaison() throws Exception {
-        Exercices_Sport ex = utilisateurService.suggestionSport(-5);
+        Exercices_Sport ex = utilisateurService.suggestionSport(1);
 
     }
 

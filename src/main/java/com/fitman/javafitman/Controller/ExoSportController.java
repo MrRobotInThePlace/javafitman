@@ -16,6 +16,6 @@ public class ExoSportController {
 
     @RequestMapping("/fitmansport")
     public Exercices_Sport fitman(@RequestParam(value="id") Integer idUtilisateur)throws Exception {
-        return utilisateurservice.suggestionSport(2);
+        return utilisateurservice.suggestionSport(idUtilisateur);
     }
 }
