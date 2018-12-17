@@ -1,5 +1,7 @@
-package com.fitman.javafitman.Model;
+package com.fitman.javafitman.Controller;
 
+import com.fitman.javafitman.Model.Exercices_Sport;
+import com.fitman.javafitman.Model.Utilisateur;
 import com.fitman.javafitman.Service.UtilisateurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,10 +14,8 @@ public class ExoSportController {
     @Autowired
     UtilisateurService utilisateurservice;
 
-    //private static final String template2 = "l'utilisateur : %s a pour histo : ";
-
     @RequestMapping("/fitmansport")
-    public Utilisateur fitman(@RequestParam(value="id") Integer id)throws Exception {
-        return utilisateurservice.findById(id);
+    public Exercices_Sport fitman(@RequestParam(value="id") Integer idUtilisateur)throws Exception {
+        return utilisateurservice.suggestionSport(2);
     }
 }

@@ -1,5 +1,7 @@
 package com.fitman.javafitman.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -14,10 +16,12 @@ public class Executer implements Serializable{
     private Integer Id;
 
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "Code_Utilisateur_Executer")
     private Utilisateur utilisateur;
 
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "Code_Sport_Executer")
     private Exercices_Sport exercices_sport;
 

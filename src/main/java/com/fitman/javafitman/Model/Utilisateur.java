@@ -1,5 +1,6 @@
 package com.fitman.javafitman.Model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fitman.javafitman.Model.Executer;
 import org.springframework.data.repository.cdi.Eager;
 
@@ -46,7 +47,8 @@ public class Utilisateur {
     @Column (name = "Objectif_Utilisateur")
     private String objectif;
 
-    @OneToMany(mappedBy = "utilisateur", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "utilisateur"/*, cascade = CascadeType.ALL, orphanRemoval = true*/, fetch = FetchType.EAGER)
+    @JsonManagedReference
     private Set<Executer> executerSports;
 
     public Set<Executer>   getExecuterSports() {
