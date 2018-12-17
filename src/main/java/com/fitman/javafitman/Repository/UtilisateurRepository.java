@@ -11,5 +11,7 @@ public interface UtilisateurRepository extends PagingAndSortingRepository<Utilis
 
     List<Utilisateur> findByPseudo (String pseudo);
 
+    List<Utilisateur> findByNiveauSport (boolean niveau_sport);
+
 
 }

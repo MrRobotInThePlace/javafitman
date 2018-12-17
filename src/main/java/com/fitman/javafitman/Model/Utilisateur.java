@@ -1,8 +1,6 @@
 package com.fitman.javafitman.Model;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fitman.javafitman.Model.Executer;
-import org.springframework.data.repository.cdi.Eager;
 
 import javax.persistence.*;
 import java.util.*;
@@ -36,13 +34,13 @@ public class Utilisateur {
     private Date date_anniversaire;
 
     @Column (name = "Poids_Utilisateur")
-    private String poids;
+    private Integer poids;
 
     @Column (name = "Taille_Utilisateur")
-    private String taille;
+    private Integer taille;
 
     @Column (name = "Niveau_Sport_Utilisateur")
-    private String niveau_sport;
+    private Boolean niveauSport;
 
     @Column (name = "Objectif_Utilisateur")
     private String objectif;
@@ -62,7 +60,7 @@ public class Utilisateur {
     public Utilisateur() {
     }
 
-    public Utilisateur(String nom, String prenom, String pseudo, String email, String mot_de_passe, Date date_anniversaire, String poids, String taille, String niveau_sport, String objectif) {
+    public Utilisateur(String nom, String prenom, String pseudo, String email, String mot_de_passe, Date date_anniversaire, Integer poids, Integer taille, Boolean niveauSport, String objectif) {
         this.nom = nom;
         this.prenom = prenom;
         this.pseudo = pseudo;
@@ -71,7 +69,7 @@ public class Utilisateur {
         this.date_anniversaire = date_anniversaire;
         this.poids = poids;
         this.taille = taille;
-        this.niveau_sport = niveau_sport;
+        this.niveauSport = niveauSport;
         this.objectif = objectif;
         executerSports = new HashSet<>();
     }
@@ -132,28 +130,28 @@ public class Utilisateur {
         this.date_anniversaire = date_anniversaire;
     }
 
-    public String getPoids() {
+    public Integer getPoids() {
         return poids;
     }
 
-    public void setPoids(String poids) {
+    public void setPoids(Integer poids) {
         this.poids = poids;
     }
 
-    public String getTaille() {
+    public Integer getTaille() {
         return taille;
     }
 
-    public void setTaille(String taille) {
+    public void setTaille(Integer taille) {
         this.taille = taille;
     }
 
-    public String getNiveau_sport() {
-        return niveau_sport;
+    public Boolean getNiveauSport() {
+        return niveauSport;
     }
 
-    public void setNiveau_sport(String niveau_sport) {
-        this.niveau_sport = niveau_sport;
+    public void setNiveauSport(Boolean niveauSport) {
+        this.niveauSport = niveauSport;
     }
 
     public String getObjectif() {

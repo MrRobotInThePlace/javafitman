@@ -1,6 +1,7 @@
 package com.fitman.javafitman.Model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -21,7 +22,7 @@ public class Executer implements Serializable{
     private Utilisateur utilisateur;
 
     @ManyToOne
-    @JsonBackReference
+    @JsonManagedReference
     @JoinColumn(name = "Code_Sport_Executer")
     private Exercices_Sport exercices_sport;
 

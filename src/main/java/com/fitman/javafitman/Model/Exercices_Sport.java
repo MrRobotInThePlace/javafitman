@@ -1,5 +1,6 @@
 package com.fitman.javafitman.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -28,7 +29,7 @@ public class Exercices_Sport {
     private String materiel;
 
     @OneToMany(mappedBy = "exercices_sport")
-    @JsonManagedReference
+    @JsonBackReference
     private Set<Executer> executerSports;
 
 
